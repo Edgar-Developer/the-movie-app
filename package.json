@@ -1,0 +1,20 @@
+{
+  "name": "the-movie-app",
+  "version": "1.0.0",
+  "description": "Curso de Comsumo de APIS RES con JavaScript",
+  "homepage": "https://github.com/Edgar-Developer/the-movie-app#readme",
+  "bugs": {
+    "url": "https://github.com/Edgar-Developer/the-movie-app/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Edgar-Developer/the-movie-app.git"
+  },
+  "license": "MIT",
+  "author": "Edgar Delgado",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

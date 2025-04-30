@@ -1,0 +1,55 @@
+@media (max-width: 500px) {
+  h1 {
+   text-align: center;
+  }
+
+  .header-container ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .header-container ul li {
+    margin: 8px;
+  }
+
+  .Preview-title a {
+    margin: 8px;
+  }
+
+  .trendingPreview-movieList, 
+  .proximaList-container ,
+  .popularyList-container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+.movie-container img {
+  width: 36vw;
+}
+
+.categoriesPreview-list {
+  grid-template-columns: 1fr 1fr;
+}
+
+.relatedMovies-scrollContainer {
+  grid-template-columns: 1fr 1fr;
+}
+
+.header-arrow {
+  font-size: 1rem;
+  top: -2%;  
+  left: -14px;
+}
+
+.inactive {
+  display: none;
+}
+
+.form-container-general {
+  margin: 34px 10px 0px 10px;
+}
+
+.genericList-container {
+  grid-template-columns: 1fr 1fr;
+}
+
+}
