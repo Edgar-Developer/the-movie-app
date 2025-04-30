@@ -2,15 +2,155 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="./favicon.ico" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Tint&family=Underdog&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style/app.css">
+  <link rel="stylesheet" href="./style/max-width-500px.css">
+
   <title>The Movie APP</title>
 </head>
 <body>
-  <h1>The Movie APP</h1>
   
+  <header id="header" class="header-container">
+    <div class="container-ul-header">
+      <h1 onclick='homePage()'>The Movie APP</h1>
+      <ul>
+        <li class="Preview-title title-inicio">
+          <a href="#">Inicio</a>
+        </li>
+        <li class="Preview-title title-populares">
+          <a href="#">Populares</a>
+        </li>
+        <li class="Preview-title title-categorias">
+          <a href="#">Categorías</a>
+        </li>
+        <li class="Preview-title title-proximas">
+          <a href="#">Próximas</a>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="contenedor-arrow-img">
+      <div class="header-container--long"></div>
+      <span class="header-arrow inactive">&lt; Volver</span>
+    </div>
+    
+    <div class="form-container-general">
+      <div class="trendingPreview-header">
+        <button class="trendingPreview-btn">Ver ➕</button>
+      </div>
+
+      <form id="searchForm" class="header-searchForm">
+        <input type="search" placeholder="Search..." autocomplete="on" required>
+        <button class="buttonFrom"></button>
+      </form>
+
+    </div>    
+  </header>  
+
+  <h2 class="header-title header-title--categoryView inactive"></h2>
+
+  <section id="categoriesPreview" class="categoriesPreview-container">
+
+    <article class="categoriesPreview-list">      
+      <!-- ESTRUCTURA EJEMPLO<div class="category-container">
+        <h3 id="id28" class="category-title">Acción</h3>
+      </div>-->
+    </article>
+  </section>
+
+    <section id="trendingPreview" class="trendingPreview-container">
+
+      <article class="trendingPreview-movieList">
+        <!-- ESTRUCTURA EJEMPLO <div class="movie-container">
+          <img src="https://i.pinimg.com/474x/98/ef/23/98ef23e29e1742692f19e05ecf201bdf.jpg"  
+          class="movie-img" alt="Nombre de la Pelicula">
+        </div> -->
+      </article>
+    </section>
+
+    <section id="genericList" class="genericList-container inactive">
+      <!-- ESTRUCTURA EJEMPLO<div class="movie-container">
+        <img
+          src="https://i.pinimg.com/474x/98/ef/23/98ef23e29e1742692f19e05ecf201bdf.jpg"
+          class="movie-img"
+          alt="Nombre de la película"
+        />
+      </div> -->
+    </section>
+
+    <h2 class="movieProximas-title">Proximas Peliculas</h2>
+    <section id="proximaList" class="proximaList-container inactive">
+      <!-- ESTRUCTURA EJEMPLO<div class="movie-container">
+        <img
+          src="https://i.pinimg.com/474x/98/ef/23/98ef23e29e1742692f19e05ecf201bdf.jpg"
+          class="movie-img"
+          alt="Nombre de la película"
+        />
+      </div> -->
+    </section>
+
+    <h2 class="moviePopulary-title">Peliculas Populares</h2>
+    <section id="popularyList" class="popularyList-container inactive">
+      <!-- ESTRUCTURA EJEMPLO<div class="movie-container">
+        <img
+          src="https://i.pinimg.com/474x/98/ef/23/98ef23e29e1742692f19e05ecf201bdf.jpg"
+          class="movie-img"
+          alt="Nombre de la película"
+        />
+      </div> -->
+    </section>
+
+    <section id="trailer" class="trailer-container">
+    </section>
+
+    <section id="movieDetail" class="movieDetail-container inactive">
+
+      <div class="conteiner-details">
+        <div class="organizar-details">
+          <h2 class="movieDetail-title"></h2>
+          <span class="movieDetail-score"></span>
+          <span class="release-date"></span>
+        </div>
+
+        <p class="movieDetail-description">           
+        </p>
+        
+        
+        <article class="categories-list">
+          <!-- ESTRUCTURA EJEMPLO<div class="category-container">
+            <h3 id="id28" class="category-title">Romance</h3>
+          </div> -->
+        </article>
+      </div>
+      <button class="boton-trailer">Trailer</button>
+      
+      <article class="relatedMovies-container">
+        <h2 class="relatedMovies-title">Películas similares</h2>
+  
+        <div class="relatedMovies-scrollContainer">
+          <div class="movie-container">
+            <!-- ESTRUCTURA EJEMPLO<img
+              src="https://i.pinimg.com/474x/98/ef/23/98ef23e29e1742692f19e05ecf201bdf.jpg"
+              class="movie-img"
+              alt="Nombre de la película"
+            /> -->
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <footer class="footer">Made in @rivasedgar</footer>  
+  
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="./src/secret-key.js"></script>
+  <script src="./src/nodes.js"></script>
   <script src="./src/app.js"></script>
+  <!-- <script src="./src/app-axios.js"></script> -->
+   <script src="./src/navigation.js"></script>
 </body>
 </html>

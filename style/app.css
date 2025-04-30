@@ -1,3 +1,326 @@
-body {
-  background-color: black;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
+:root { /* variables*/
+  /*General*/
+  --title-red: #e13c2f;
+  --background-browser: #03020a;
+  --nav-fooder-parrafo: #fff;
+  --input-background: #8d060649;
+  --background-header-Fooder: #2e2b47;
+  /*Categorias*/
+  --yellow: #EECC75;
+  --green: #CAD297;
+  --aqua: #B7EAC5;
+  --lightBlue: #A2EEE5;
+  --darkBlue: #8EA2EA;
+  --red: #F09D9D;
+  /*Fuentes*/
+  --font-family-title: "Bungee Tint", sans-serif;
+  --font-family-text: "Underdog", system-ui;
+  --font-weight-title1: 800;
+  --font-weight-title2: 700;
+  --font-weight-parrafo1: 400;
+  --font-weight-parrafo2: 500;
+}
+
+html {  
+  height: 100%;
+  font-size: 62.5%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  background-color: var(--background-browser);
+  color: var(--nav-fooder-parrafo);
+  font-weight: var(--font-weight-title1);
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  font-family: var(--font-family-title);
+  font-weight: var(--font-weight-title1);
+  color: var(--title-red);
+  font-size: 4rem;
+  padding-top: 16px;
+  cursor: pointer;
+}
+
+h2 , .movieDetail-title {
+  display: flex;
+  justify-content: center;
+  margin: 18px;
+  font-family: var(--font-family-text);
+  font-weight: var(--font-weight-parrafo2);
+  color: var(--title-red);
+  font-size: 2.5rem;
+}
+
+.movieDetail-title {
+  display: flex;
+  justify-content: flex-start;
+}
+
+h3 {
+  font-family: var(--font-family-text);
+  font-weight: var(--font-weight-parrafo1);
+  color: var(--nav-fooder-parrafo);
+  font-size: 1.3rem;
+}
+
+/* formulario */
+
+ .header-searchForm {
+  display: flex;
+  background-color: var(--input-background);
+  border-radius: 20px;
+  margin-right: 20px;
+}
+
+input {
+  width: 200px;
+  background-color: transparent;
+  font-family: var(--font-family-text);
+  font-size: 1.5rem;
+  color: var(--nav-fooder-parrafo);
+  border: none;
+  outline: none;
+  padding: 10px 5px 10px 22px; 
+} 
+
+ input::placeholder {
+  font-family: var(--font-family-text);
+  font-size: 1.5rem;
+  color: var(--nav-fooder-parrafo) ;
+  opacity: 1;
+} 
+
+.header-searchForm button {
+  background-image: url(https://img.icons8.com/android/24/000000/search.png);
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  margin: 0 10px 0 0;
+  padding: 0 10px; 
+}
+
+.form-container-general {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  padding-top: 16px;
+  margin: 20px 10px 0px 10px;
+}
+
+
+/* header */ 
+
+.container-ul-header {
+  border-bottom: 2px solid var(--input-background);
+  background-color: var(--background-header-Fooder);
+}
+
+.header-container ul {
+  display: flex;
+  justify-content:space-around;
+  margin: 20px;
+}
+
+.Preview-title {
+  list-style: none;
+}
+
+.Preview-title a {
+  font-family: var(--font-family-text);
+  color: var(--nav-fooder-parrafo);
+  font-size: 1.7rem;
+  text-decoration: none;
+}
+
+.Preview-title a:hover{
+  color: var(--title-red);  
+}
+
+/* arrow */
+
+.header-arrow, .boton-trailer {
+  position: absolute;
+  border: 2px solid var(--title-red);
+  border-radius: 8px;
+  padding: 4px;
+  color: var(--nav-fooder-parrafo);
+  font-size: 1.2rem;
+  margin: 20px;
+  cursor: pointer;
+  background-color: var(--background-browser);
+}
+
+.header-arrow:hover, .boton-trailer:hover {
+  border: 2px solid var(--nav-fooder-parrafo);
+  color: var(--title-red);
+}
+
+/* tendencias */
+
+.trendingPreview-btn {
+  background-color: transparent;
+  border-color: var(--nav-fooder-parrafo);
+  border-radius: 8px;
+  color: var(--nav-fooder-parrafo);
+  padding: 4px;
+  margin: 16px;
+  cursor: pointer;
+}
+
+.trendingPreview-btn:hover {
+  border-color: var(--title-red);
+}
+
+.trendingPreview-movieList , 
+.proximaList-container ,
+.popularyList-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;  
+  margin-top: 7%;
+}
+
+.movie-container {
+  margin-top: 10%;
+}
+
+.movie-container img {
+  width: 22vw;
+  border-radius: 20px;
+  margin: 6%;
+  box-shadow: 2px 4px 10px 4px var(--input-background);
+  transition: transform 0.3s ease; /* Transición suave */
+}
+
+.movie-container img:hover {
+  transform: scale(1.1); /* Aumenta el tamaño de la imagen al 110% */
+  box-shadow: 2px 4px 10px 4px var(--nav-fooder-parrafo);
+}
+
+.conteiner-details{
+  display: flex;
+  flex-direction: column;
+  margin: 12px;
+}
+
+/* categorias */
+
+.category-title {
+  margin-bottom: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.categoriesPreview-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 2px;
+  justify-items: center;
+  margin: 20px 0;
+}
+
+.category-title::before {
+  content: '••••';
+  color: transparent;
+  /* TODO: cambiar color por ID de la categoría */
+  background-color: var(--idColor);
+  border-radius: 8px;
+  margin-right: 8px;
+  width: 8px;
+  height: 8px;
+}
+#id28 { --idColor: var(--yellow); }
+#id12 { --idColor: var(--red); }
+#id16 { --idColor: var(--green); }
+#id35 { --idColor: var(--lightBlue); }
+#id80 { --idColor: var(--darkBlue); }
+#id99 { --idColor: var(--purple-dark-1); }
+#id18 { --idColor: var(--purple-medium-1); }
+#id10751 { --idColor: var(--yellow); }
+#id14 { --idColor: var(--red); }
+#id36 { --idColor: var(--green); }
+#id27 { --idColor: var(--lightBlue); }
+#id10402 { --idColor: var(--darkBlue); }
+#id9648 { --idColor: var(--purple-dark-1); }
+#id10749 { --idColor: var(--purple-medium-1); }
+#id878 { --idColor: var(--yellow); }
+#id10770 { --idColor: var(--red); }
+#id53 { --idColor: var(--green); }
+#id10752 { --idColor: var(--lightBlue); }
+#id37 { --idColor: var(--darkBlue); }
+
+.relatedMovies-scrollContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+}
+
+.movieDetail-score, .release-date {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 1.3rem;
+  margin: 2px;
+}
+
+.organizar-details {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: start;
+}
+
+.movieDetail-description{
+  font-size: 1.3rem;
+  margin: 20px 0;
+}
+
+.contenedor-arrow-img {
+  display: flex;
+  flex-direction: column;  
+  position: relative; /* para organizar la arrow*/
+}
+
+.genericList-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+}
+
+.header-container--long {
+  background-size: contain;/* Asegúrate de que la imagen se ajuste sin recortarse */
+  background-repeat: no-repeat;/* Evita que la imagen se repita */
+  background-position: center;/* Centra la imagen en el contenedor */
+  margin: 50px 0 20px 0;;
+  height: 480px;
+}
+
+.footer {
+  margin-top: 26px;
+  background-color: var(--background-header-Fooder);
+  border-top: 2px solid var(--input-background);
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+.inactive {
+  display: none;
+}
+
