@@ -136,4 +136,5 @@ dist
 .pnp.*
 
 # secrete-key
+src/secret-key.js
 src/app-axios.js
