@@ -9,15 +9,9 @@ headerPopulares.addEventListener('click', () => {
   getMovioeByPopular();
 });
 
-arrow.addEventListener('click', () => {
-  console.log('Historial actual:', window.history.length);
-  if (window.history.length > 1) {
-    history.back(); // Retrocede una página en el historial
-  } else {
-    console.log('No hay páginas anteriores en el historial.');
-    // Aquí puedes redirigir a la página de inicio o hacer otra acción
-    location.hash = '#home';
-  }
+arrow.addEventListener('click', () => {  
+    history.back(); // Retrocede una página en el historial 
+    //location.hash = '#home';  
 });
 
 btnfrom.addEventListener('click', (event) => {
@@ -25,26 +19,26 @@ btnfrom.addEventListener('click', (event) => {
   location.hash = `#search=${input.value}`;  
 })
 
-//let lastClicked = null;
+let lastClicked = null;
 
-// function toogleNav() {
-//   headerUlGeneral.forEach((boton) => {
-//     boton.addEventListener('click', () => {
+function toogleNav() {
+  headerUlGeneral.forEach((boton) => {
+    boton.addEventListener('click', () => {
 
-//       if(lastClicked) {
-//         lastClicked.style.color = '';
-//       }
+      if(lastClicked) {
+        lastClicked.style.color = '';
+      }
 
-//       boton.style.color = "#c90900",
-//       lastClicked = boton; 
+      boton.style.color = "#c90900",
+      lastClicked = boton; 
 
-//       setTimeout(() => {
-//       boton.style.color = ""        
-//       }, 20000);     
-//     })
-//   })
-// }
-// toogleNav()
+      setTimeout(() => {
+      boton.style.color = ""        
+      }, 20000);     
+    })
+  })
+}
+toogleNav()
 
 let currentPage = 1;// Variable para llevar el seguimiento de la página actual
 
