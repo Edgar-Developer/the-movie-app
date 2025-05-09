@@ -28,6 +28,9 @@
         <li class="Preview-title title-categorias">
           <a href="#">Categorías</a>
         </li>
+        <li class="Preview-title title-favoritas">
+          <a href="#">Favoritas</a>
+        </li>
         <li class="Preview-title title-proximas">
           <a href="#">Próximas</a>
         </li>
@@ -41,7 +44,8 @@
     
     <div class="form-container-general">
       <div class="trendingPreview-header">
-        <button class="trendingPreview-btn">Ver ➕</button>
+        <!-- <button class="trendingPreview-btn">Ver ➕</button> -->
+        <h1 class="sub-title">The Movie APP</h1>
       </div>
 
       <form id="searchForm" class="header-searchForm">
@@ -66,10 +70,16 @@
     <section id="trendingPreview" class="trendingPreview-container">
 
       <article class="trendingPreview-movieList">
-        <!-- ESTRUCTURA EJEMPLO <div class="movie-container">
-          <img src="https://i.pinimg.com/474x/98/ef/23/98ef23e29e1742692f19e05ecf201bdf.jpg"  
-          class="movie-img" alt="Nombre de la Pelicula">
-        </div> -->
+        <div class="movie-container movie-container--loading"></div>
+        <div class="movie-container movie-container--loading"></div>
+        <div class="movie-container movie-container--loading"></div>
+        <div class="movie-container movie-container--loading"></div>
+        <div class="movie-container movie-container--loading"></div>
+
+         <div class="movie-container movie-container--loading">
+         <!-- ESTRUCTURA EJEMPLO <img src="https://i.pinimg.com/474x/98/ef/23/98ef23e29e1742692f19e05ecf201bdf.jpg"  
+          class="movie-img" alt="Nombre de la Pelicula"> -->
+        </div>
       </article>
     </section>
 
@@ -85,24 +95,55 @@
 
     <h2 class="movieProximas-title">Proximas Peliculas</h2>
     <section id="proximaList" class="proximaList-container inactive">
-      <!-- ESTRUCTURA EJEMPLO<div class="movie-container">
-        <img
+      <div class="movie-container movie-container--loading"></div>
+      <div class="movie-container movie-container--loading"></div>
+      <div class="movie-container movie-container--loading"></div>
+      <div class="movie-container movie-container--loading"></div>
+      <div class="movie-container movie-container--loading"></div>
+
+      <div class="movie-container movie-container--loading">
+        <!-- ESTRUCTURA EJEMPLO<img
           src="https://i.pinimg.com/474x/98/ef/23/98ef23e29e1742692f19e05ecf201bdf.jpg"
           class="movie-img"
           alt="Nombre de la película"
-        />
-      </div> -->
+        />-->
+      </div> 
+    </section>
+
+    <div id="favory-title" class="header-favory-title">
+      <h2 class="movieFavoritas-title">Peliculas Favoritas</h2>
+    </div>
+    <section id="favoryList" class="favoritas-container inactive">
+      <div class="movie-container movie-container--loading"></div>
+      <div class="movie-container movie-container--loading"></div>
+      <div class="movie-container movie-container--loading"></div>
+      <div class="movie-container movie-container--loading"></div>
+      <div class="movie-container movie-container--loading"></div>
+
+      <div class="movie-container movie-container--loading">
+        <!-- ESTRUCTURA EJEMPLO<img
+          src="https://i.pinimg.com/474x/98/ef/23/98ef23e29e1742692f19e05ecf201bdf.jpg"
+          class="movie-img"
+          alt="Nombre de la película"
+        />-->
+      </div> 
     </section>
 
     <h2 class="moviePopulary-title">Peliculas Populares</h2>
     <section id="popularyList" class="popularyList-container inactive">
-      <!-- ESTRUCTURA EJEMPLO<div class="movie-container">
-        <img
+      <div class="movie-container movie-container--loading"></div>
+      <div class="movie-container movie-container--loading"></div>
+      <div class="movie-container movie-container--loading"></div>
+      <div class="movie-container movie-container--loading"></div>
+      <div class="movie-container movie-container--loading"></div>
+
+      <div class="movie-container movie-container--loading">
+         <!-- ESTRUCTURA EJEMPLO<img
           src="https://i.pinimg.com/474x/98/ef/23/98ef23e29e1742692f19e05ecf201bdf.jpg"
           class="movie-img"
-          alt="Nombre de la película"
+          alt="Nombre de la película"-->
         />
-      </div> -->
+      </div> 
     </section>
 
     <section id="trailer" class="trailer-container">
@@ -118,12 +159,11 @@
         </div>
 
         <p class="movieDetail-description">           
-        </p>
-        
+        </p>        
         
         <article class="categories-list">
           <!-- ESTRUCTURA EJEMPLO<div class="category-container">
-            <h3 id="id28" class="category-title">Romance</h3>
+            <h3 id="id28" class="category-title">Accio</h3>
           </div> -->
         </article>
       </div>
@@ -133,7 +173,13 @@
         <h2 class="relatedMovies-title">Películas similares</h2>
   
         <div class="relatedMovies-scrollContainer">
-          <div class="movie-container">
+          <div class="movie-container movie-container--loading"></div>
+          <div class="movie-container movie-container--loading"></div>
+          <div class="movie-container movie-container--loading"></div>
+          <div class="movie-container movie-container--loading"></div>
+          <div class="movie-container movie-container--loading"></div>
+
+          <div class="movie-container movie-container--loading">
             <!-- ESTRUCTURA EJEMPLO<img
               src="https://i.pinimg.com/474x/98/ef/23/98ef23e29e1742692f19e05ecf201bdf.jpg"
               class="movie-img"
@@ -143,6 +189,12 @@
         </div>
       </article>
     </section>
+
+    <div class="controls">
+      <button id="prevBtn">Anterior</button>
+      <span id="pageIndicator">Página 1</span>
+      <button id="nextBtn">Siguiente</button>
+    </div>    
 
     <footer class="footer">Made in @rivasedgar</footer>  
   

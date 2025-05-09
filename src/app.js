@@ -1,23 +1,90 @@
 // Abstraccion
 
+const lazyloader = new IntersectionObserver((entries) => { // se crea una instancia de instersectorOberver y se le pasa una funcion callback q lleva un parametro con el cual se itera pora cada uno se sus elemetos
+  entries.forEach((entry) => {
+    // console.log({entry});
+    // console.log(entry.target.getAttribute);
+
+    if(entry.isIntersecting) { // estamos diciendo si entry su propiedad isIntersecting es tru cambia el atributo data-img por src
+      const url = entry.target.getAttribute('data-img'); // se obtiene lo q tengas el atributo data-img en este caso la url
+      //console.log(entry.target);
+      
+      entry.target.setAttribute('src', url); // y se le pasa la url obtenida a src ojo con css ahi que darles un tamaño minimo a las imagenes para q no carge todas ya q por defecto su heigth es de 0
+    }
+    
+  })
+})
+
+function likedMoviesList() {
+  const item = JSON.parse(localStorage.getItem('liked-movie'));
+  let movies;
+
+  if (item) {
+    movies = item;
+  } else {
+    movies = {};
+  }
+
+  return movies;
+}
+
+function likeMovie(movie) {
+const likeMovies = likedMoviesList();
+console.log(likeMovies);
+
+  if (likeMovies[movie.id]) {
+    console.log('La Pelicula ya Existe en localStorage deberias eliminarla');    
+    likeMovies[movie.id] = undefined;
+  } else {
+    console.log(movie.id);
+    likeMovies[movie.id] = movie;
+  }
+  localStorage.setItem('liked-movie', JSON.stringify(likeMovies))
+}
+
 function createMovie(movie, container) { // Le enviamos el llamado a la API y el contenedor al q queremos iterar
 
   container.innerHTML = '', // Limpia lo q este y evita la carga dulicada
 
   movie.forEach(movie => {        
     const movieConatainer = document.createElement('div');
-    movieConatainer.classList.add('movie-container');
-    movieConatainer.addEventListener('click', () => {
-      location.hash = `#movie=${movie.id}`
-    })
+    movieConatainer.classList.add('movie-container');  
 
     const movieImg = document.createElement('img');
     movieImg.classList.add('movie-img');
-    movieImg.setAttribute('src', `https://image.tmdb.org/t/p/w300${movie.poster_path}`);
     movieImg.setAttribute('alt', movie.title)
+    movieImg.setAttribute(
+      lazyloader ? 'data-img' : 'src',  // se esta guaradando la propiedad la url de la imagen ya no en src sino en data.img y se esta preguntando si lazyloader es true agrega el atributo data-img sino es true agrega src es para q no agrege las dos de una vez
+      `https://image.tmdb.org/t/p/w300${movie.poster_path}`
+    );
 
-    movieConatainer.appendChild(movieImg)
-    container.appendChild(movieConatainer)
+    movieImg.addEventListener('error', () => {
+      movieImg.setAttribute(
+      'src',
+      'https://thumbs.dreamstime.com/b/error-43976249.jpg'
+      );
+    })
+
+    movieImg.addEventListener('click', () => {
+      location.hash = `#movie=${movie.id}`
+    });
+
+    const moviBtn = document.createElement('button');
+    moviBtn.classList.add('movie-btn');
+    likedMoviesList()[movie.id] && moviBtn.classList.add('movie-btn--liked');
+    moviBtn.addEventListener('click', () => {
+      moviBtn.classList.toggle('movie-btn--liked')
+      likeMovie(movie);
+      getLikedMovies();
+    })
+
+    if (lazyloader) { // si existe has esto
+      lazyloader.observe(movieImg); //aca estamos llamando a lazyloader y su metodo obsere diciendole q observe a nuestro movieImg con esto ya estamos agregando todas las imagenes q nuestro entry      
+    }
+
+    movieConatainer.appendChild(movieImg);
+    movieConatainer.appendChild(moviBtn);
+    container.appendChild(movieConatainer);
   });
 }
 
@@ -38,6 +105,7 @@ function createDeltailsMovie(movie, container) {
       // ['#category', 'id-name']
       const [_, categoryData] = location.hash.split('=');
       const [categoryId, categoryName] = categoryData.split('-');
+
 
       titleCategories.innerHTML = categoryName;
       
@@ -67,6 +135,7 @@ async function trendingPreviewHome(page = 1) { // Agrega un parámetro para la p
     console.log('tendencias-home:', {movie});
     
     createMovie(movie, articleTrendingList); // contenedor de tendendia se coloca aqui
+    document.documentElement.scrollTop = 0;
 
   } catch (error) {
     console.error(error);    
@@ -109,7 +178,7 @@ async function getMovioeByCategory(id) {
 
   } catch (error) {
     console.error(error);    
-  }
+  }  
 }
 
 async function getMovioeBySearch(query) {
@@ -184,7 +253,7 @@ async function getMovioeByUpcoming() {
 
 async function getMovioeByRecommendations(id) {
   try {
-    const res = await fetch(`https://api.themoviedb.org/3/movie/${id}/recommendations?language=en-US&page=1`, {
+    const res = await fetch(`https://api.themoviedb.org/3/movie/${id}/recommendations?language=en-US`, {
 
       method: 'GET',
       headers: {       
@@ -202,9 +271,9 @@ async function getMovioeByRecommendations(id) {
   }
 }
 
-async function getMovioeByPopular() {
+async function getMovioeByPopular(page = 1) {
   try {
-    const res = await fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=1`, {
+    const res = await fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=1${page}`, {
 
       method: 'GET',
       headers: {       
@@ -220,4 +289,15 @@ async function getMovioeByPopular() {
   } catch (error) {
     console.error(error);    
   }
+}
+
+function getLikedMovies() {
+  const moviesLiked = likedMoviesList(); 
+  console.log('1', moviesLiked);
+  
+  const moviesArray = Object.values(moviesLiked);
+  console.log('2', moviesArray);
+
+  createMovie(moviesArray, movieFavorySection);
+
 }

@@ -52,4 +52,9 @@
   grid-template-columns: 1fr 1fr;
 }
 
+.movie-container--loading {
+  width: 32vw;
+  height: 34vh;
+}
+
 }
