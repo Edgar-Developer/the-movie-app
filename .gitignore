@@ -137,4 +137,3 @@ dist
 
 # secrete-key
 src/app-axios.js
-src/secret.js

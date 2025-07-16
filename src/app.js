@@ -273,7 +273,7 @@ async function getMovioeByRecommendations(id) {
 
 async function getMovioeByPopular(page = 1) {
   try {
-    const res = await fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=1${page}`, {
+    const res = await fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=${page}`, {
 
       method: 'GET',
       headers: {       
